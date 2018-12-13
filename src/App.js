@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PageHome from './routes/PageHome';
 import PageLogin from './routes/PageLogin';
-import PageSignUp from './routes/PageSignUp';
 import PageProfile from './routes/PageProfile';
+import PageSignUp from './routes/PageSignUp';
 
 class App extends Component {
   render() {
