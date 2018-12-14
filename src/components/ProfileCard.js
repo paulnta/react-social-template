@@ -17,7 +17,7 @@ const styles = theme => ({
   content: {
     position: 'relative',
     display: 'flex',
-    padding: '8px 16px',
+    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
   },
   avatar: {
     position: 'absolute',
@@ -33,27 +33,35 @@ const styles = theme => ({
   },
 });
 
-const ProfileCard = ({ classes, displayName, username, avatarUrl, profileUrl, coverUrl, stats }) => (
-  <Paper elevation={1} className={classes.root}>
-    <div className={classes.header} style={{ backgroundImage: `url('${coverUrl}')` }}></div>
-    <div className={classes.content}>
-      <Avatar className={classes.avatar} src={avatarUrl} />
-      <div className={classes.userFields}>
-        <Typography variant="h6">
-          <Link to={profileUrl}>{displayName}</Link>
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          <Link to={coverUrl}>@{username}</Link>
-        </Typography>
+const ProfileCard = ({ classes, displayName, username, avatarUrl, profileUrl, coverUrl, stats }) => {
+  const backgroundStyle = coverUrl
+    ? { backgroundImage: `url('${coverUrl}')` }
+    : null;
+
+  return (
+    <Paper elevation={1} className={classes.root}>
+      <div className={classes.header} style={backgroundStyle} />
+      <div className={classes.content}>
+        <Link to={profileUrl}>
+          <Avatar className={classes.avatar} src={avatarUrl} />
+        </Link>
+        <div className={classes.userFields}>
+          <Typography variant="h6">
+            <Link to={profileUrl}>{displayName}</Link>
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            <Link to={profileUrl}>@{username}</Link>
+          </Typography>
+        </div>
       </div>
-    </div>
-    <ProfileStats
-      posts={stats.posts}
-      followers={stats.followers}
-      following={stats.following}
-    />
-  </Paper>
-);
+      <ProfileStats
+        posts={stats.posts}
+        followers={stats.followers}
+        following={stats.following}
+      />
+    </Paper>
+  );
+};
 
 ProfileCard.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string),

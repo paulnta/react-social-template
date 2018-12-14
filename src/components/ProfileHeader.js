@@ -36,28 +36,43 @@ const styles = theme => ({
   }
 });
 
-const ProfileHeader = ({ classes, className }) => (
-  <Paper elevation={1} className={cx(classes.root, className)}>
-    <div className={classes.header} style={{ backgroundImage: `url('https://source.unsplash.com/collection/841904')` }} />
-    <div className={classes.main}>
-      <Avatar className={classes.avatar} src="https://source.unsplash.com/collection/895539" />
-      <Typography variant="h6">Brandon Folks</Typography>
-      <Typography variant="subtitle1" color="textSecondary">
-        Professional photographer
-      </Typography>
-    </div>
-    <ProfileStats
-      className={classes.stats}
-      posts={112}
-      followers={234}
-      following={21}
-    />
-  </Paper>
-);
+const ProfileHeader = ({ classes, displayName, bio, avatarUrl, coverUrl, stats, className }) => {
+  const headerStyle = coverUrl
+    ? { backgroundImage: `url('${coverUrl}')` }
+    : null;
+
+  return (
+    <Paper elevation={1} className={cx(classes.root, className)}>
+      <div className={classes.header} style={headerStyle} />
+      <div className={classes.main}>
+        <Avatar className={classes.avatar} src={avatarUrl} />
+        <Typography variant="h6">{displayName}</Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {bio}
+        </Typography>
+      </div>
+      <ProfileStats
+        className={classes.stats}
+        posts={stats.posts}
+        followers={stats.followers}
+        following={stats.following}
+      />
+    </Paper>
+  );
+};
 
 ProfileHeader.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string),
   className: PropTypes.string,
+  coverUrl: PropTypes.string,
+  avatarUrl: PropTypes.string,
+  bio: PropTypes.string,
+  displayName: PropTypes.string,
+  stats: PropTypes.shape({
+    posts: PropTypes.number,
+    followers: PropTypes.number,
+    following: PropTypes.number,
+  })
 };
 
 export default withStyles(styles)(ProfileHeader);

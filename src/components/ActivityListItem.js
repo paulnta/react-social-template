@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
-const styles = theme => ({
-  root: {},
-});
-
-const ActivityListItem = ({ classes, children, title, subtitle, avatarUrl, ...props }) => (
-  <ListItem
-    dense
-    className={classes.root}
-    button
-    {...props}
-  >
+const ActivityListItem = ({ children, title, subtitle, avatarUrl, ...props }) => (
+  <ListItem dense button {...props}>
     <ListItemAvatar>
       <Avatar src={avatarUrl} />
     </ListItemAvatar>
@@ -35,4 +25,4 @@ ActivityListItem.propTypes = {
   avatarUrl: PropTypes.string,
 };
 
-export default withStyles(styles)(ActivityListItem);
+export default ActivityListItem;

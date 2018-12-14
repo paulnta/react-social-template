@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import SignUpForm from '../components/SignUpForm';
+import FormSignUp from '../components/FormSignUp';
 
 const styles = theme => ({
   root: {
@@ -22,7 +22,7 @@ const PageSignUp = ({ classes, history }) => {
 
   return (
     <div className={classes.root}>
-      <SignUpForm
+      <FormSignUp
         className={classes.form}
         onSubmit={handleSubmit}
       />

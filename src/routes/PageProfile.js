@@ -24,7 +24,19 @@ const PageProfile = ({ classes }) => (
   <div className={classes.root}>
     <AppBar />
     <div className={classes.main}>
-      <ProfileHeader className={classes.header} />
+      <ProfileHeader
+        className={classes.header}
+        displayName="Brandon Folks"
+        bio="Professional photographer"
+        coverUrl="https://source.unsplash.com/collection/841904"
+        avatarUrl="https://source.unsplash.com/collection/895539"
+        stats={{
+          posts: 112,
+          followers: 234,
+          following: 22,
+        }}
+      />
+
       <Grid container spacing={24}>
         <Grid item xs={12} sm={6} md={4}>
           <PostCard

@@ -12,7 +12,6 @@ const styles = theme => ({
     height: 30,
     width: 30,
     padding: 0,
-    color: theme.palette.text.secondary,
   }
 });
 
@@ -21,8 +20,8 @@ const InputSearch = ({ classes, ...props }) => (
     endAdornment={
       <InputAdornment position="end">
         <IconButton
-          disabled={props.disabled}
           tabIndex={-1}
+          disabled={props.disabled}
           className={classes.searchButton}
           type="submit"
         >
@@ -40,6 +39,7 @@ InputSearch.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default withStyles(styles)(InputSearch);

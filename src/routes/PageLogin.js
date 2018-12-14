@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import LoginForm from '../components/LoginForm';
+import FormLogin from '../components/FormLogin';
 
 const styles = theme => ({
   root: {
@@ -22,7 +22,7 @@ const PageLogin = ({ classes, history }) => {
 
   return (
     <div className={classes.root}>
-      <LoginForm
+      <FormLogin
         className={classes.form}
         onSubmit={handleSubmit}
       />
