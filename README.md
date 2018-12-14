@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React social template
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Material-ui](https://material-ui.com/)
+
+![screenshot](./docs/screenshot.png)
 
 ## Available Scripts
 
