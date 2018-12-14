@@ -13,7 +13,20 @@ const styles = theme => ({
 
 const PageHome = ({ classes }) => (
   <Layout
-    aside={<ProfileCard />}
+    aside={
+      <ProfileCard
+        displayName="Paul Nta"
+        username="paulnta"
+        avatarUrl="https://source.unsplash.com/collection/895539"
+        profileUrl="/profile/paulnta"
+        coverUrl="https://source.unsplash.com/collection/841904"
+        stats={{
+          posts: 112,
+          followers: 234,
+          following: 22,
+        }}
+      />
+    }
   >
     <PostCard
       className={classes.post}
